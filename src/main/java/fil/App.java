@@ -34,6 +34,53 @@ public class App
             for (int loop = 0; loop < C + 2 + 2 * C; loop++)
                 System.out.print('-');
             System.out.println();
+
+            for (int y = 0; y < L; y++) {
+                System.out.print('|');
+                for (int x = 0; x < C; x++) {
+                    System.out.print(" " + plateau[x][y] + " ");
+                }
+                System.out.print('|');
+                System.out.println();
+            }
+
+            for (int loop = 0; loop < C + 2 + 2 * C; loop++)
+                System.out.print('-');
+            System.out.println();
+
+
+            // partie des pions X et O
+            System.out.println("Tour du joueur " + (i % 2 == 1 ? 'X' : 'O'));
+            System.out.println("Entrez le numero de la colonne entre 1 et " + C + " ...");
+            boolean placement = false;
+            int colonne = -1;
+            while (!placement) {
+                colonne = -1;
+                String ligne = scanner.nextLine();
+                // vérification que la ligne est un entier entre 1 et C:
+                try {
+                    colonne = Integer.valueOf(ligne);
+
+                    if (colonne >= 1 && colonne <= C) {
+                        if (plateau[colonne - 1][0] != '.') {
+                            System.out.println("Colonne pleine, choisir autre");
+                        } else {
+                            placement = true;
+                        }
+                    } else {
+                        System.out.println("Nombre incorrect, choisir autre");
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Nombre incorrect, choisir autre");
+                }
+
+            } 
+            // placement des pion X & O:   
+
+
+          //  System.out.println("Tour du joueur " + (i % 2 == 1 ? 'X' : 'O'));
+
         }
     
     }
