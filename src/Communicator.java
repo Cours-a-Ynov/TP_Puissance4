@@ -70,7 +70,7 @@ public class Communicator {
         System.out.println("Waiting for connection on port 8000");
         try {
             ServerSocketChannel ssc = ServerSocketChannel.open();
-            ssc.socket().bind(new InetSocketAddress(8000));
+            ssc.socket().bind(new InetSocketAddress(4004));
             socket = ssc.accept();
             System.out.println("Connection established!");
         }
@@ -83,7 +83,7 @@ public class Communicator {
     public void connect(String address) throws IOException{
         System.out.println("Connecting to host...");
         socket = SocketChannel.open();
-        socket.connect(new InetSocketAddress(address, 8000));        
+        socket.connect(new InetSocketAddress(address, 4004));        
         System.out.println("Connection established!");
     }
 

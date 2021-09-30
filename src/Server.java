@@ -19,10 +19,10 @@ public class Server {
     }
 
     public void accept(){
-        System.out.println("Waiting for connection on port 8000");
+        System.out.println("Waiting for connection on port 4004");
         try {
             ServerSocketChannel ssc = ServerSocketChannel.open();
-            ssc.socket().bind(new InetSocketAddress(8000));
+            ssc.socket().bind(new InetSocketAddress(4004));
             socket = ssc.accept();
             System.out.println("Connection established!");
         }

@@ -23,7 +23,7 @@ public class Client {
     public void connect() throws IOException{
         System.out.println("Connecting to host...");
         socket = SocketChannel.open();
-        socket.connect(new InetSocketAddress("localhost", 8000));        
+        socket.connect(new InetSocketAddress("localhost", 4004));        
         System.out.println("Connection established!");
     }
 
