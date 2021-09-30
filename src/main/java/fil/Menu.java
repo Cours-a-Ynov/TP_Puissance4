@@ -11,44 +11,35 @@ import javax.swing.JTextArea;
 
 public class Menu {
 
-	public Menu(final JFrame fenetre) {
-		
-		JMenuBar barreDeMenu = new JMenuBar();
 
-		JMenu menu = new JMenu("Menu");
-
-		JMenuItem menuItemAPropos = new JMenuItem("A propos");
-
-		menuItemAPropos.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JFrame fenAPropos = new JFrame();
-				fenAPropos.setTitle("A propos");
-				fenAPropos.setSize(400, 80);
-				fenAPropos.setVisible(true);
-				JTextArea label = new JTextArea(
-						"Bienvenue sur notre puissance 4");
-				fenAPropos.add(label);
-
-			}
-		});
-		
-		JMenuItem menuItemFermer = new JMenuItem("Fermer");
-		menuItemFermer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				fenetre.dispose();
-			}
-		});
-
-		menu.add(menuItemFermer);
-
-		barreDeMenu.add(menu);
-
-		fenetre.setJMenuBar(barreDeMenu);
-
-		menu.add(menuItemAPropos);
-
+int sousmenu = 0;
+        boolean arret = false;
+        while (!arret){
+	System.out.println("--Mon menu--");
+	System.out.println("Sous menu 1 : tapez 1");
+	System.out.println("Sous menu 2 : tapez 2");
+	System.out.println("Sous menu 3 : tapez 3");
+        System.out.println("quitter : tapez 9");
+	sousmenu = Lire.i();
+	switch(sousmenu)
+	{
+		case 1 :{
+					int choix = 0;
+					System.out.println("---Sous menu 1---");
+					System.out.println("Sous menu 1-1 : tapez 1");
+					System.out.println("Sous menu 1-2 : tapez 2");
+                                        System.out.println("quitter : tapez 9");
+					choix = Lire.i();
+					switch(choix){
+						case 1 : System.out.println("Sous menu 1-1"); break;
+						case 2 : System.out.println("Sous menu 1-2"); break;
+                                                case 9 : arret = true; break;
+                                                default : System.out.println("entrez un choix entre 1 et 2"); break;
+					}
+				} break;
+		case 2 : System.out.println("Sous menu 2"); break;
+		case 3 : System.out.println("Sous menu 2"); break;
+                case 9 : arret = true; break;
+		default : System.out.println("entrez un choix entre 1 et 3"); break;
 	}
-
-}
+                }
