@@ -169,8 +169,45 @@ public class App {
             }
 
             System.out.println("*************************");
+
+
+            
         }
-		
+
+        // affichage des résultats:
+        // si gagnant == 0 c'est que tout le plateau s'est remplis sans gagnant, il y a
+        // donc égalité J1=J2
+        System.out.println();
+
+        System.out.println("_____________");
+
+        System.out.println("****FIN DE PARTIE****");
+        
+        System.out.println("*********************");
+        if (gagnant == 0)
+            System.out.println("*******EGALITE*******");
+        if (gagnant == 1)
+            System.out.println("****VICTOIRE DE Joueur X****");
+        if (gagnant == 2)
+            System.out.println("****VICTOIRE DE Joueur O****");
+        System.out.println("_____________");
+
+        for (int loop = 0; loop < C + 2 + 2 * C; loop++)
+            System.out.print('#');
+        System.out.println();
+
+        for (int y = 0; y < L; y++) {
+            System.out.print('#');
+            for (int x = 0; x < C; x++) {
+                System.out.print(" " + plateau[x][y] + " ");
+            }
+            System.out.print('#');
+            System.out.println();
+        }
+
+        for (int loop = 0; loop < C + 2 + 2 * C; loop++)
+            System.out.print('#');
+        System.out.println();   
 	}
 
 }
