@@ -2,16 +2,14 @@
 package fil;
 
 import java.util.Scanner;
-/**
- * Hello world!
- *
- */
+
+
 public class App {
     public static void main( String[] args )
+    
     {
         Scanner scanner = new Scanner(System.in);
         
-      //  System.out.println( "Hello World!" );
       //gagne lorsque 4 couleur sont alignés
         int N = 4;
       // creation de la grille 8 par 6
@@ -25,9 +23,9 @@ public class App {
 
         int gagnant = 0;
 
-        //  un for pour arrêter le jeu pour victoir de J1 ou J2
+        //  un for pour arrêter le jeu pour victoire de J1 ou J2
         for(int i = 1 ; i <= C*L ; i++) {
-            // afficher la grille :
+        // afficher la grille :
             System.out.println("Tour " + i + ", affichage du plateau :");
 
             for (int loop = 0; loop < C + 2 + 2 * C; loop++)
@@ -179,18 +177,18 @@ public class App {
         // donc égalité J1=J2
         System.out.println();
 
-        System.out.println("_____________");
+        System.out.println("********************");
 
-        System.out.println("****FIN DE PARTIE****");
+        System.out.println("----FIN DE PARTIE----");
         
         System.out.println("*********************");
         if (gagnant == 0)
-            System.out.println("*******EGALITE*******");
+            System.out.println("-----EGALITE-----");
         if (gagnant == 1)
-            System.out.println("****VICTOIRE DE Joueur X****");
+            System.out.println("VICTOIRE DE Joueur X");
         if (gagnant == 2)
-            System.out.println("****VICTOIRE DE Joueur O****");
-        System.out.println("_____________");
+            System.out.println("VICTOIRE DE Joueur O");
+        System.out.println("************************");
 
         for (int loop = 0; loop < C + 2 + 2 * C; loop++)
             System.out.print('#');
