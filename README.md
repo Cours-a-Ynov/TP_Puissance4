@@ -1,6 +1,14 @@
-# LE JEU FIL ROUGE PUISSANCE 4         
+# 🟡 LE JEU FIL ROUGE PUISSANCE 4 🔴
 
-*author*  : @Gracieux31 & @Karrwolf
+***
+![Réseau Informatique : Installation et Administration](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.LOZpozYS3uTCvvRjgy3vQgHaEK%26pid%3DApi&f=1)
+
+***
+**Intervenant :** Julien Sosthène  
+
+## 👤 Fait par :
+- ``Malo LOYER VIAUD`` alias [@Karrwolf](https://github.com/Karrwolf) (ATTENTION Problème de GIT, Malo est aussi nommé [@LemonIceStuff](https://github.com/LemonIceStuff))
+- ``Gracieux ALHONSOU`` alias [@Gracieux31](https://github.com/Gracieux31)
 
 *version* : 1.0			
 
@@ -24,5 +32,5 @@ Le vainqueur est le joueur qui réalise le premier un alignement (horizontal, ve
 
 Le jeu a été conçu en java avec l'IDE (Vscode).
 
-
-
+***
+*Nantes YNOV Campus - B2 Informatique - 2021/2022*
