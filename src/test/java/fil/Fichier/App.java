@@ -1,6 +1,6 @@
 package fil.Fichier;
 
-import javafx.application.Application;
+import javafx.app.App;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.When;
 import javafx.scene.Group;
@@ -17,12 +17,12 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
-public class Main extends Application {
+public class Main extends App {
 	
 	private static int precedent;
 	private static int nbTour;
 	
-	private Application[][] application;
+	private App[][] app;
 	
 	public void start(Stage primaryStage) {
 		try {
@@ -63,19 +63,19 @@ public class Main extends Application {
 				}
 			}
 			
-			//Création Application:
-			application = new Application[7][6];
+			//Création des case:
+			app = new App[7][6];
 			
 			for(int i = 0 ; i < L ; i++){
 				for (int j = 0 ; j < C ; j++){
-					application[j][i] = new Application();
-					application[j][i].layoutXProperty().bind(r.widthProperty().divide(7).multiply(j));
-					application[j][i].layoutYProperty().bind(r.heightProperty().divide(6).multiply(i));
-					application[j][i].fitHeightProperty().bind(r.heightProperty().divide(6));
-					application[j][i].fitWidthProperty().bind(r.widthProperty().divide(7));
+					app[j][i] = new App();
+					app[j][i].layoutXProperty().bind(r.widthProperty().divide(7).multiply(j));
+					app[j][i].layoutYProperty().bind(r.heightProperty().divide(6).multiply(i));
+					app[j][i].fitHeightProperty().bind(r.heightProperty().divide(6));
+					app[j][i].fitWidthProperty().bind(r.widthProperty().divide(7));
 					
 					
-					root.getChildren().add(application[j][i]);
+					root.getChildren().add(app[j][i]);
 				}
 			}
 			
@@ -87,7 +87,7 @@ public class Main extends Application {
 			tour.layoutYProperty().bind(r.heightProperty());
 			
 			
-			Label joueur = new Label("A BMW de jouer");
+			Label joueur = new Label("A Rouge de jouer");
 			joueur.setTextFill(Color.DARKGREEN);
 			joueur.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20));
 			joueur.setLayoutX(300);
@@ -153,13 +153,13 @@ public class Main extends Application {
 				int colonne = (int)(e.getX() / (r.getWidth() / C));
 				
 				//Placement du jeton:
-				if(application[colonne][0].getStatut() == 0 && !victoire.isVisible()){
+				if(app[colonne][0].getStatut() == 0 && !victoire.isVisible()){
 					
 					int rang = L-1;
-					while(application[colonne][rang].getStatut() != 0){
+					while(app[colonne][rang].getStatut() != 0){
 						rang--;
 					}
-					application[colonne][rang].set(nbTour%2==1 ? 1 : 2);
+					app[colonne][rang].set(nbTour%2==1 ? 1 : 2);
 					
 					
 					//Condiiton de victoire:
@@ -172,30 +172,30 @@ public class Main extends Application {
 					
 					//Diagonale HG-BD
 					x = colonne; y = rang; somme=-1;
-					while(y >= 0 && x >= 0 && application[x][y].getStatut() == couleur){ y--; x--; somme++;}
+					while(y >= 0 && x >= 0 && app[x][y].getStatut() == couleur){ y--; x--; somme++;}
 					x = colonne; y = rang;
-					while(y < L && x < C && application[x][y].getStatut() == couleur){ y++; x++; somme++;}
+					while(y < L && x < C && app[x][y].getStatut() == couleur){ y++; x++; somme++;}
 					if(somme > max) max= somme;
 					
 					//Diagonale HD-BG
 					x = colonne; y = rang; somme=-1;
-					while(y >= 0 && x < C && application[x][y].getStatut() == couleur){ y--; x++; somme++;}
+					while(y >= 0 && x < C && app[x][y].getStatut() == couleur){ y--; x++; somme++;}
 					x = colonne; y = rang;
-					while(y < L && x >= 0 && application[x][y].getStatut() == couleur){ y++; x--; somme++;}
+					while(y < L && x >= 0 && app[x][y].getStatut() == couleur){ y++; x--; somme++;}
 					if(somme > max) max= somme;
 					
 					//Verticale:
 					x = colonne; y = rang; somme=-1;
-					while(y >= 0 && application[x][y].getStatut() == couleur){ y--; somme++;}
+					while(y >= 0 && app[x][y].getStatut() == couleur){ y--; somme++;}
 					y = rang;
-					while(y < L && application[x][y].getStatut() == couleur){ y++; somme++;}
+					while(y < L && app[x][y].getStatut() == couleur){ y++; somme++;}
 					if(somme > max) max= somme;
 					
 					//Horizontale:
 					x = colonne; y = rang; somme=-1;
-					while(x >= 0 && application[x][y].getStatut() == couleur){ x--; somme++;}
+					while(x >= 0 && app[x][y].getStatut() == couleur){ x--; somme++;}
 					x = colonne;
-					while(x < C && application[x][y].getStatut() == couleur){ x++; somme++;}
+					while(x < C && app[x][y].getStatut() == couleur){ x++; somme++;}
 					if(somme > max) max= somme;
 					
 					
@@ -203,7 +203,7 @@ public class Main extends Application {
 						joueur.setVisible(false);
 						victoire.setVisible(true);
 						victoire.setTextFill(couleur == 1 ? Color.RED : Color.YELLOW);
-						victoire.setText("VICTOIRE DE " + (couleur == 1 ? "BMW" : "Merco"));
+						victoire.setText("VICTOIRE DE " + (couleur == 1 ? "Rouge" : "Jaune"));
 						nbTour--;
 					}
 					
@@ -216,7 +216,7 @@ public class Main extends Application {
 						nbTour--;
 					}
 					tour.setText("Tour " + nbTour);
-					joueur.setText("A " + (nbTour%2 == 1 ? "BMW" : "Merco") + " de jouer");
+					joueur.setText("A " + (nbTour%2 == 1 ? "Rouge" : "Jaune") + " de jouer");
 					
 				}
 			});
